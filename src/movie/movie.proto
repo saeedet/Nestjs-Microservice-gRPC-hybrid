@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package movie;
+
+service MovieService {
+    rpc FindOne (MovieName) returns (Movie);
+}
+
+message MovieName {
+    string name = 1;
+}
+
+message Movie {
+    int32 id = 1;
+    string name = 2;
+    int32 rating = 3;
+    int32 likes = 4;
+}

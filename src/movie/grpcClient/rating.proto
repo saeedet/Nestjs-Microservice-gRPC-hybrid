@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package rating;
+
+service RatingService {
+    rpc FindOne (MovieId) returns (MovieRating);
+}
+
+message MovieId {
+    int32 id = 1;
+}
+
+message MovieRating {
+    int32 rating = 1;
+}

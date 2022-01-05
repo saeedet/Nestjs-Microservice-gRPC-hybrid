@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package likes;
+
+service LikesService {
+    rpc FindOne (MovieId) returns (MovieLikes);
+}
+
+message MovieId {
+    int32 id = 1;
+}
+
+message MovieLikes {
+    int32 likes = 1;
+}

@@ -1,17 +1,19 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { MicroserviceOptions } from '@nestjs/microservices';
 import { AppModule } from './app.module';
+import { grpcOptions } from './grpc.options';
 
 const logger = new Logger('Main');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen();
   logger.log('Microservice is listening...');
-  // app.connectMicroservice<MicroserviceOptions>(grpcClientOptions);
+  app.connectMicroservice<MicroserviceOptions>(grpcOptions);
 
-  // await app.startAllMicroservices();
-  // await app.listen(process.env.APPLICATION_PORT);
+  await app.startAllMicroservices();
+  await app.listen(process.env.APPLICATION_PORT);
 
-  // console.log(`Application is running on: ${await app.getUrl()}`);
+  logger.log(`Microservice is listening on ${process.env.GRPC_URL}`);
+  logger.log(`Application is running on port: ${process.env.APPLICATION_PORT}`);
 }
 bootstrap();
