@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Client, ClientGrpc } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 import { Movie } from './entities/movie.entity';
@@ -10,7 +10,6 @@ import {
 
 @Injectable()
 export class MovieService implements OnModuleInit {
-  private logger = new Logger('MovieService');
   private movies = [
     {
       id: 1,

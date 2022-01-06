@@ -5,7 +5,7 @@ export const grpcOptions: ClientOptions = {
   transport: Transport.GRPC,
   options: {
     package: ['movie'],
-    protoPath: [join(__dirname, '../src/movie/movie.proto')],
+    protoPath: [join(__dirname, './movie/movie.proto')],
     url: process.env.GRPC_URL,
   },
 };

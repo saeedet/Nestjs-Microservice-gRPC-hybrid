@@ -17,7 +17,7 @@ export interface MovieRating {
 }
 
 export interface GrpcLikesService {
-  findOne(data: MovieId): Observable<any>;
+  findOne(data: MovieId): Observable<MovieLikes>;
 }
 
 export interface GrpcRatingService {
